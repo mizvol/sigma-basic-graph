@@ -26,19 +26,18 @@
   <script>
 
 sigmaInitCallback = function(s) {
-  sigma_instance.refresh()
+  sigma_instance.refresh();
+  sigma_instance.startForceAtlas2({ worker: true, barnesHutOptimize: true, scalingRatio: 20 });
+  window.setTimeout(function() {s.killForceAtlas2()}, 30000);
 }
 
 var sigma_instance = new sigma({
   renderer: {
-        container: document.getElementById('container'),
-        type: 'canvas'
+        container: document.getElementById('container')
   }
 });
 
 sigma.parsers.json('data/data.json', sigma_instance, sigmaInitCallback);
-
-// sigma_instance.refresh();
     
   </script>
 </body>
