@@ -25,9 +25,20 @@
   <div id="container"></div>
   <script>
 
-var g = sigma.parsers.json(
-  'data/data.json', {
-  container: 'container'});
+sigmaInitCallback = function(s) {
+  sigma_instance.refresh()
+}
+
+var sigma_instance = new sigma({
+  renderer: {
+        container: document.getElementById('container'),
+        type: 'canvas'
+  }
+});
+
+sigma.parsers.json('data/data.json', sigma_instance, sigmaInitCallback);
+
+// sigma_instance.refresh();
     
   </script>
 </body>
