@@ -18,6 +18,26 @@ function restartLayout(){
     sigma_instance.startForceAtlas2(forceAtlas2Config);
 }
 
+function drawLabels(){
+    sigma_instance.settings('drawLabels', true);
+}
+
+function hideLabels(){
+    sigma_instance.settings('drawLabels', false);
+}
+
+function drawHideLabelsTrigger(){
+    var checkBox = document.getElementById("drawHideLabelsCheckBox");
+    if(checkBox.checked == true) 
+        {
+            drawLabels();
+        }
+    else 
+        {
+            hideLabels();
+        }
+
+}
 
 // Sigma settings: https://github.com/jacomyal/sigma.js/wiki/Settings
 var sigma_instance = new sigma({
