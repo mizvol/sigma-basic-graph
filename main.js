@@ -1,9 +1,8 @@
-// Force Atlas readme https://github.com/Linkurious/linkurious.js/tree/linkurious-version/plugins/sigma.layout.forceAtlas2
+// Force Atlas readme: https://github.com/Linkurious/linkurious.js/tree/linkurious-version/plugins/sigma.layout.forceAtlas2
 
 forceAtlas2Config = {
         barnesHutOptimize: true,
-        scalingRatio: 200,
-        iterationsPerRender: 10
+        scalingRatio: 200
     }
 
 sigmaInitCallback = function(s) {
@@ -19,6 +18,8 @@ function restartLayout(){
     sigma_instance.startForceAtlas2(forceAtlas2Config);
 }
 
+
+// Sigma settings: https://github.com/jacomyal/sigma.js/wiki/Settings
 var sigma_instance = new sigma({
     renderer: {
         container: document.getElementById('container')
