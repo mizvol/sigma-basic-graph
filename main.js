@@ -3,8 +3,11 @@ sigmaInitCallback = function(s) {
     sigma_instance.startForceAtlas2({
         worker: true,
         barnesHutOptimize: true,
-        scalingRatio: 20
+        // startingIterations: 50,
+        scalingRatio: 200,
+        iterationsPerRender: 10
     });
+    // window.setTimeout(sigma_instance.killForceAtlas2(), 20000);
 }
 
 var sigma_instance = new sigma({
@@ -13,7 +16,9 @@ var sigma_instance = new sigma({
     },
     settings: {
         drawEdges: false,
-        drawLabels: false
+        drawLabels: false,
+        scalingMode: "outside",
+        maxNodeSize: 1
     }
 });
 
