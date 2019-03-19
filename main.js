@@ -20,10 +20,12 @@ function restartLayout(){
 
 function drawLabels(){
     sigma_instance.settings('drawLabels', true);
+    sigma_instance.refresh();
 }
 
 function hideLabels(){
     sigma_instance.settings('drawLabels', false);
+    sigma_instance.refresh();
 }
 
 function drawHideLabelsTrigger(){
@@ -35,6 +37,29 @@ function drawHideLabelsTrigger(){
     else 
         {
             hideLabels();
+        }
+
+}
+
+function drawEdges(){
+    sigma_instance.settings('drawEdges', true);
+    sigma_instance.refresh();
+}
+
+function hideEdges(){
+    sigma_instance.settings('drawEdges', false);
+    sigma_instance.refresh();
+}
+
+function drawHideEdgesTrigger(){
+    var checkBox = document.getElementById("drawHideEdgesCheckBox");
+    if(checkBox.checked == true) 
+        {
+            drawEdges();
+        }
+    else 
+        {
+            hideEdges();
         }
 
 }
