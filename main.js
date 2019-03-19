@@ -1,7 +1,7 @@
+// Force Atlas readme https://github.com/Linkurious/linkurious.js/tree/linkurious-version/plugins/sigma.layout.forceAtlas2
+
 forceAtlas2Config = {
-        // worker: true,
         barnesHutOptimize: true,
-        // startingIterations: 50,
         scalingRatio: 200,
         iterationsPerRender: 10
     }
@@ -9,7 +9,6 @@ forceAtlas2Config = {
 sigmaInitCallback = function(s) {
     sigma_instance.refresh();
     sigma_instance.startForceAtlas2(forceAtlas2Config);
-    // window.setTimeout(sigma_instance.killForceAtlas2(), 20000);
 }
 
 function stopLayout(){
