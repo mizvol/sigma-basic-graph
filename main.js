@@ -2,7 +2,8 @@
 
 forceAtlas2Config = {
     barnesHutOptimize: true,
-    scalingRatio: 500
+    scalingRatio: 500,
+    outboundAttractionDistribution: true
 }
 
 function stopLayout() {
