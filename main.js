@@ -73,7 +73,8 @@ var sigma_instance = new sigma({
         drawEdges: false,
         drawLabels: false,
         scalingMode: "outside",
-        maxNodeSize: 1
+        maxNodeSize: 1,
+        edgeColor: "source"
     }
 });
 
