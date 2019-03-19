@@ -1,72 +1,61 @@
 // Force Atlas readme: https://github.com/Linkurious/linkurious.js/tree/linkurious-version/plugins/sigma.layout.forceAtlas2
 
 forceAtlas2Config = {
-        barnesHutOptimize: true,
-        scalingRatio: 500
-    }
+    barnesHutOptimize: true,
+    scalingRatio: 500
+}
 
-function stopLayout(){
+function stopLayout() {
     sigma_instance.killForceAtlas2();
 }
 
-function restartLayout(){
+function restartLayout() {
     sigma_instance.startForceAtlas2(forceAtlas2Config);
 }
 
-function drawLabels(){
+function drawLabels() {
     sigma_instance.settings('drawLabels', true);
     sigma_instance.refresh();
 }
 
-function hideLabels(){
+function hideLabels() {
     sigma_instance.settings('drawLabels', false);
     sigma_instance.refresh();
 }
 
-function drawHideLabelsTrigger(){
+function drawHideLabelsTrigger() {
     var checkBox = document.getElementById("drawHideLabelsCheckBox");
-    if(checkBox.checked == true) 
-        {
-            drawLabels();
-        }
-    else 
-        {
-            hideLabels();
-        }
+    if (checkBox.checked == true) {
+        drawLabels();
+    } else {
+        hideLabels();
+    }
 
 }
 
-function drawEdges(){
+function drawEdges() {
     sigma_instance.settings('drawEdges', true);
     sigma_instance.refresh();
 }
 
-function hideEdges(){
+function hideEdges() {
     sigma_instance.settings('drawEdges', false);
     sigma_instance.refresh();
 }
 
-function drawHideEdgesTrigger(){
+function drawHideEdgesTrigger() {
     var checkBox = document.getElementById("drawHideEdgesCheckBox");
-    if(checkBox.checked == true) 
-        {
-            drawEdges();
-        }
-    else 
-        {
-            hideEdges();
-        }
+    if (checkBox.checked == true) {
+        drawEdges();
+    } else {
+        hideEdges();
+    }
 
 }
 
 // Sigma settings: https://github.com/jacomyal/sigma.js/wiki/Settings
 
-sigmaInitCallback = function(s) {
-    sigma_instance.refresh();
-    sigma_instance.startForceAtlas2(forceAtlas2Config);
-}
-
-var sigma_instance = new sigma({
+sigmaConfig = {
     renderer: {
         container: document.getElementById('container')
     },
@@ -76,8 +65,16 @@ var sigma_instance = new sigma({
         scalingMode: "outside",
         maxNodeSize: 1,
         maxEdgeSize: 0.01,
-        edgeColor: "source"
+        edgeColor: "source",
+        labelThreshold: 3
     }
-});
+}
+
+sigmaInitCallback = function(s) {
+    sigma_instance.refresh();
+    sigma_instance.startForceAtlas2(forceAtlas2Config);
+}
+
+var sigma_instance = new sigma(sigmaConfig);
 
 sigma.parsers.json('data/data.json', sigma_instance, sigmaInitCallback);
