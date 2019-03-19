@@ -2,13 +2,8 @@
 
 forceAtlas2Config = {
         barnesHutOptimize: true,
-        scalingRatio: 200
+        scalingRatio: 500
     }
-
-sigmaInitCallback = function(s) {
-    sigma_instance.refresh();
-    sigma_instance.startForceAtlas2(forceAtlas2Config);
-}
 
 function stopLayout(){
     sigma_instance.killForceAtlas2();
@@ -65,6 +60,12 @@ function drawHideEdgesTrigger(){
 }
 
 // Sigma settings: https://github.com/jacomyal/sigma.js/wiki/Settings
+
+sigmaInitCallback = function(s) {
+    sigma_instance.refresh();
+    sigma_instance.startForceAtlas2(forceAtlas2Config);
+}
+
 var sigma_instance = new sigma({
     renderer: {
         container: document.getElementById('container')
@@ -74,6 +75,7 @@ var sigma_instance = new sigma({
         drawLabels: false,
         scalingMode: "outside",
         maxNodeSize: 1,
+        maxEdgeSize: 0.01,
         edgeColor: "source"
     }
 });
