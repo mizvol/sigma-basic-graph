@@ -2,8 +2,8 @@
 
 forceAtlas2Config = {
     barnesHutOptimize: true,
-    scalingRatio: 500,
-    outboundAttractionDistribution: true
+    scalingRatio: 500
+    // outboundAttractionDistribution: true
 }
 
 function stopLayout() {
@@ -64,7 +64,6 @@ sigmaConfig = {
         drawEdges: false,
         drawLabels: false,
         scalingMode: "outside",
-        maxNodeSize: 1,
         maxEdgeSize: 0.01,
         edgeColor: "source",
         labelThreshold: 3
@@ -78,4 +77,4 @@ sigmaInitCallback = function(s) {
 
 var sigma_instance = new sigma(sigmaConfig);
 
-sigma.parsers.json('data/data.json', sigma_instance, sigmaInitCallback);
+sigma.parsers.json('data/ga.json', sigma_instance, sigmaInitCallback);
