@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Basic sigma.js example</title>
+    <link rel="stylesheet" href="main.css">
+    <script src="./lib/sigma.min.js"></script>
+    <script src="./lib/plugins/sigma.parsers.gexf/gexf-parser.js"></script>
+    <script src="./lib/plugins/sigma.parsers.json/sigma.parsers.json.js"></script>
+    <script src="./lib/plugins/sigma.parsers.gexf/sigma.parsers.gexf.js"></script>
+    <script src="./lib/plugins/sigma.layout.forceAtlas2/supervisor.js"></script>
+    <script src="./lib/plugins/sigma.layout.forceAtlas2/worker.js"></script>
+    <script src="./lib/plugins/sigma.neo4j.cypher/sigma.neo4j.cypher.js"></script>
+</head>
+
+<body>
+    <input id="stopLayout" type="button" value="Stop Layout" onclick="stopLayout();" />
+    <input id="restartLayout" type="button" value="Restart Layout" onclick="restartLayout();" />
+    Show/hide node labels: <input id="drawHideLabelsCheckBox" type="checkbox" onclick="drawHideLabelsTrigger();" />
+    Show/hide edges: <input id="drawHideEdgesCheckBox" type="checkbox" onclick="drawHideEdgesTrigger();" />
+    <div id="container"></div>
+    <script src="neo.js"></script>
+</body>
+
+</html>
