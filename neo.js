@@ -81,12 +81,9 @@ var sigma_instance = new sigma(sigmaConfig);
 
 sigma.neo4j.cypher(
   { url: 'http://localhost:7474', user:'neo4j', password:'20121967' },
-  "MATCH (p)-[:BELONGS_TO*1..4]->(c:Category { title: 'Actors'}) RETURN p as source, c as target LIMIT 10000",
-  // { container: 'container' },
+  "MATCH (p)-[r:BELONGS_TO*1..4]->(c:Category { title: 'Physics'}) RETURN p.title, r, c.title LIMIT 10000",
   sigma_instance,
   function(s) {
     sigma_instance.refresh();
     sigma_instance.startForceAtlas2(forceAtlas2Config);
-}
-
-);
+});
