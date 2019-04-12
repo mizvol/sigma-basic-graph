@@ -2,7 +2,7 @@
 
 forceAtlas2Config = {
     barnesHutOptimize: true,
-    scalingRatio: 500
+    scalingRatio: 5000
     // outboundAttractionDistribution: true
 }
 
@@ -81,7 +81,7 @@ var sigma_instance = new sigma(sigmaConfig);
 
 sigma.neo4j.cypher(
   { url: 'http://localhost:7474', user:'neo4j', password:'20121967' },
-  "MATCH (p)-[r:BELONGS_TO*1..4]->(c:Category { title: 'Physics'}) RETURN p.title, r, c.title LIMIT 10000",
+  "MATCH (p)-[r:BELONGS_TO*1..4]->(c:Category { title: 'Physics'}) RETURN p, r, c LIMIT 10000",
   sigma_instance,
   function(s) {
     sigma_instance.refresh();
