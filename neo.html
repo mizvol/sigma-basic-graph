@@ -17,14 +17,22 @@
 </head>
 
 <body>
-    <input type="text" id="queryInput" value="">
-    <input type="button" value="Submit query" onclick="queryNeo4J()" />
-    <input id="stopLayout" type="button" value="Stop Layout" onclick="stopLayout();" />
-    <input id="restartLayout" type="button" value="Restart Layout" onclick="restartLayout();" />
-    <input id="noverlap" type="button" value="Prevent Overlap" onclick="noverlap();" />
-    <input id="saveGEXF" type="button" value="Save GEXF" onclick="saveGEXF();" />
-    Show/hide node labels: <input id="drawHideLabelsCheckBox" type="checkbox" onclick="drawHideLabelsTrigger();" />
-    Show/hide edges: <input id="drawHideEdgesCheckBox" type="checkbox" onclick="drawHideEdgesTrigger();" />
+    <div>
+        <input type="text" id="queryInput" style="width:70%" value="">
+        <input type="button" value="Submit query" onclick="queryNeo4J()" />
+    </div>
+    <div>
+        <input id="stopLayout" type="button" value="Stop Layout" onclick="stopLayout();" />
+        <input id="restartLayout" type="button" value="Restart Layout" onclick="restartLayout();" />
+        <input id="noverlap" type="button" value="Prevent Overlap" onclick="noverlap();" />
+        <div>
+            <input id="saveGEXF" type="button" value="Save GEXF" onclick="saveGEXF();" />
+        </div>
+        <div>
+            Show/hide node labels: <input id="drawHideLabelsCheckBox" type="checkbox" onclick="drawHideLabelsTrigger();" />
+            Show/hide edges: <input id="drawHideEdgesCheckBox" type="checkbox" onclick="drawHideEdgesTrigger();" />
+        </div>
+    </div>
     <div id="container"></div>
     <script src="neo.js"></script>
 </body>
