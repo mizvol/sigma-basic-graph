@@ -54,6 +54,21 @@ function drawHideEdgesTrigger() {
 
 }
 
+function noverlap() {
+    const config = {
+        nodeMargin: 10.0,
+        scaleNodes: 2.3,
+        duration: 100,
+        speed: 6,
+        easing: "cubicInOut",
+        gridSize: 10
+    };
+
+    var listener = sigma_instance.configNoverlap(config);
+
+    sigma_instance.startNoverlap()
+}
+
 // Sigma settings: https://github.com/jacomyal/sigma.js/wiki/Settings
 
 sigmaConfig = {
@@ -79,11 +94,7 @@ var sigma_instance = new sigma(sigmaConfig);
 
 // sigma.parsers.json('data/ga.json', sigma_instance, sigmaInitCallback);
 
-sigma.neo4j.cypher(
-  { url: 'http://localhost:7474', user:'neo4j', password:'20121967' },
-  "MATCH (p)-[r:BELONGS_TO*1..4]->(c:Category { title: 'Physics'}) RETURN p, r, c LIMIT 10000",
-  sigma_instance,
-  function(s) {
-    sigma_instance.refresh();
-    sigma_instance.startForceAtlas2(forceAtlas2Config);
-});
+sigma.neo4j.cypher({ url: 'http://localhost:7474', user: 'neo4j', password: '20121967' },
+    "MATCH (p)-[r:BELONGS_TO*1..4]->(c:Category { title: 'Actors'}) RETURN p, r, c LIMIT 500",
+    sigma_instance,
+    sigmaInitCallback);
