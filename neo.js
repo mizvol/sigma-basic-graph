@@ -92,6 +92,14 @@ function saveGEXF() {
     }));
 }
 
+function queryNeo4J() {
+    var query = document.getElementById("queryInput").value;
+    sigma.neo4j.cypher({ url: 'http://localhost:7474', user: 'neo4j', password: '20121967' },
+    query,
+    sigma_instance,
+    sigmaInitCallback);
+}
+
 // Sigma settings: https://github.com/jacomyal/sigma.js/wiki/Settings
 
 sigmaConfig = {
@@ -118,7 +126,3 @@ var sigma_instance = new sigma(sigmaConfig);
 
 // sigma.parsers.json('data/ga.json', sigma_instance, sigmaInitCallback);
 
-sigma.neo4j.cypher({ url: 'http://localhost:7474', user: 'neo4j', password: '20121967' },
-    "MATCH (p)-[r:BELONGS_TO*1..4]->(c:Category { title: 'Actors'}) RETURN p, r, c LIMIT 5000",
-    sigma_instance,
-    sigmaInitCallback);
