@@ -55,6 +55,9 @@ function drawHideEdgesTrigger() {
 }
 
 function noverlap() {
+
+    var nNodes = sigma_instance.graph.nodes().length
+
     const config = {
         nodeMargin: 10.0,
         scaleNodes: 2.3,
@@ -66,7 +69,15 @@ function noverlap() {
 
     var listener = sigma_instance.configNoverlap(config);
 
-    sigma_instance.startNoverlap()
+    if (nNodes > 500) {
+        if (confirm("This graph is too large to recompute the layout. It contains " + nNodes + " nodes. Are you sure you want to continue?")) {
+            sigma_instance.startNoverlap();
+        } else {
+            return;
+        }
+    } else {
+        sigma_instance.startNoverlap();
+    }
 }
 
 function saveGEXF() {
@@ -100,6 +111,7 @@ sigmaConfig = {
 sigmaInitCallback = function(s) {
     sigma_instance.refresh();
     sigma_instance.startForceAtlas2(forceAtlas2Config);
+    console.log(sigma_instance.graph.nodes().length);
 }
 
 var sigma_instance = new sigma(sigmaConfig);
@@ -107,6 +119,6 @@ var sigma_instance = new sigma(sigmaConfig);
 // sigma.parsers.json('data/ga.json', sigma_instance, sigmaInitCallback);
 
 sigma.neo4j.cypher({ url: 'http://localhost:7474', user: 'neo4j', password: '20121967' },
-    "MATCH (p)-[r:BELONGS_TO*1..4]->(c:Category { title: 'Actors'}) RETURN p, r, c LIMIT 500",
+    "MATCH (p)-[r:BELONGS_TO*1..4]->(c:Category { title: 'Actors'}) RETURN p, r, c LIMIT 5000",
     sigma_instance,
     sigmaInitCallback);
