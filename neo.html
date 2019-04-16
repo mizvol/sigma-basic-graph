@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Basic sigma.js example</title>
+    <title>Neo4J explorer</title>
     <link rel="stylesheet" href="main.css">
     <script src="./lib/sigma.min.js"></script>
     <script src="./lib/plugins/sigma.parsers.gexf/gexf-parser.js"></script>
@@ -14,23 +14,43 @@
     <script src="./lib/plugins/sigma.layout.noverlap/sigma.layout.noverlap.js"></script>
     <script src="./lib/plugins/sigma.plugins.animate/sigma.plugins.animate.js"></script>
     <script src="./lib/plugins/sigma.exporters.gexf/sigma.exporters.gexf.js"></script>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 
 <body>
-    <div>
-        <input type="text" id="queryInput" style="width:70%" value="">
-        <input type="button" value="Submit query" onclick="queryNeo4J()" />
-    </div>
-    <div>
-        <input id="stopLayout" type="button" value="Stop Layout" onclick="stopLayout();" />
-        <input id="restartLayout" type="button" value="Restart Layout" onclick="restartLayout();" />
-        <input id="noverlap" type="button" value="Prevent Overlap" onclick="noverlap();" />
-        <div>
-            <input id="saveGEXF" type="button" value="Save GEXF" onclick="saveGEXF();" />
+    <div id="controls" class="container">
+        <div class="container">
+            <div class="row">
+                <div class="input-group mb-3">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-dark" type="button" onclick="queryNeo4J()">Submit query</button>
+                    </div>
+                    <input type="text" id="queryInput" class="form-control" placeholder="Enter Cypher query" value="MATCH (p)-[r:BELONGS_TO*1..4]->(c:Category { title: 'Physics'}) RETURN p, r, c LIMIT 500" aria-label="Cypher query" aria-describedby="button-addon2">
+                </div>
+            </div>
         </div>
-        <div>
-            Show/hide node labels: <input id="drawHideLabelsCheckBox" type="checkbox" onclick="drawHideLabelsTrigger();" />
-            Show/hide edges: <input id="drawHideEdgesCheckBox" type="checkbox" onclick="drawHideEdgesTrigger();" />
+        <div class="container">
+            <div class="row">
+                <button id="stopLayout" class="btn btn-outline-dark" type="button" onclick="stopLayout();">Stop Layout</button>
+                <button id="restartLayout" class="btn btn-outline-dark" type="button" onclick="restartLayout();">Restart Layout</button>
+                <button id="noverlap" class="btn btn-outline-dark" type="button" onclick="noverlap();">Prevent Overlap</button>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <button id="saveGEXF" class="btn btn-outline-dark" type="button" onclick="saveGEXF();">Save GEXF</button>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                Show/hide node labels: <input id="drawHideLabelsCheckBox" type="checkbox" class="form-check-input" onclick="drawHideLabelsTrigger();" />
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                Show/hide edges: <input id="drawHideEdgesCheckBox" type="checkbox" class="form-check-input" onclick="drawHideEdgesTrigger();" />
+            </div>
         </div>
     </div>
     <div id="container"></div>
