@@ -13,12 +13,14 @@
     <script src="./lib/plugins/sigma.neo4j.cypher/sigma.neo4j.cypher.js"></script>
     <script src="./lib/plugins/sigma.layout.noverlap/sigma.layout.noverlap.js"></script>
     <script src="./lib/plugins/sigma.plugins.animate/sigma.plugins.animate.js"></script>
+    <script src="./lib/plugins/sigma.exporters.gexf/sigma.exporters.gexf.js"></script>
 </head>
 
 <body>
     <input id="stopLayout" type="button" value="Stop Layout" onclick="stopLayout();" />
     <input id="restartLayout" type="button" value="Restart Layout" onclick="restartLayout();" />
-    <input id="noverlap" type="button" value="Noverlap" onclick="noverlap();" />
+    <input id="noverlap" type="button" value="Prevent Overlap" onclick="noverlap();" />
+    <input id="saveGEXF" type="button" value="Save GEXF" onclick="saveGEXF();" />
     Show/hide node labels: <input id="drawHideLabelsCheckBox" type="checkbox" onclick="drawHideLabelsTrigger();" />
     Show/hide edges: <input id="drawHideEdgesCheckBox" type="checkbox" onclick="drawHideEdgesTrigger();" />
     <div id="container"></div>

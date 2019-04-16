@@ -69,6 +69,18 @@ function noverlap() {
     sigma_instance.startNoverlap()
 }
 
+function saveGEXF() {
+    console.log(sigma_instance.toGEXF({
+        download: true,
+        filename: 'myGraph.gexf',
+        nodeAttributes: 'neo4j_data',
+        edgeAttributes: 'neo4j_data',
+        renderer: sigma_instance.renderers[0],
+        creator: 'Sigma.js',
+        description: 'This is an awesome graph!'
+    }));
+}
+
 // Sigma settings: https://github.com/jacomyal/sigma.js/wiki/Settings
 
 sigmaConfig = {
