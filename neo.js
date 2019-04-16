@@ -93,7 +93,7 @@ sigmaConfig = {
         scalingMode: "outside",
         maxEdgeSize: 0.01,
         edgeColor: "source",
-        labelThreshold: 3
+        labelThreshold: 10
     }
 }
 
