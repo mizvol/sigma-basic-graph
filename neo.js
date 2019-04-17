@@ -83,7 +83,7 @@ function noverlap() {
 function saveGEXF() {
     console.log(sigma_instance.toGEXF({
         download: true,
-        filename: 'sigma-graph' + + new Date().valueOf() +  '.gexf',
+        filename: 'sigma-graph' + +new Date().valueOf() + '.gexf',
         nodeAttributes: 'neo4j_data',
         edgeAttributes: 'neo4j_data',
         renderer: sigma_instance.renderers[0],
@@ -92,13 +92,25 @@ function saveGEXF() {
     }));
 }
 
+window.onload = function() {
+    CodeMirror.fromTextArea(document.getElementById("code"), {
+        mode: 'cypher',
+        lineNumbers: true,
+        theme: 'neo'
+    });
+}
+
 function queryNeo4J() {
     stopLayout(); // stop previously running layout plugin
-    var query = document.getElementById("queryInput").value;
+
+    var editor = document.getElementById("code");
+    var query = editor.value;
+
+    // var query = document.getElementById("queryInput").value;
     sigma.neo4j.cypher({ url: 'http://localhost:7474', user: 'neo4j', password: '20121967' },
-    query,
-    sigma_instance,
-    sigmaInitCallback);
+        query,
+        sigma_instance,
+        sigmaInitCallback);
 }
 
 // Sigma settings: https://github.com/jacomyal/sigma.js/wiki/Settings
@@ -126,4 +138,3 @@ sigmaInitCallback = function(s) {
 var sigma_instance = new sigma(sigmaConfig);
 
 // sigma.parsers.json('data/ga.json', sigma_instance, sigmaInitCallback);
-

@@ -3,7 +3,6 @@
 
 <head>
     <title>Neo4J explorer</title>
-    <link rel="stylesheet" href="main.css">
     <script src="./lib/sigma.min.js"></script>
     <script src="./lib/plugins/sigma.parsers.gexf/gexf-parser.js"></script>
     <script src="./lib/plugins/sigma.parsers.json/sigma.parsers.json.js"></script>
@@ -14,8 +13,12 @@
     <script src="./lib/plugins/sigma.layout.noverlap/sigma.layout.noverlap.js"></script>
     <script src="./lib/plugins/sigma.plugins.animate/sigma.plugins.animate.js"></script>
     <script src="./lib/plugins/sigma.exporters.gexf/sigma.exporters.gexf.js"></script>
+    <script src="./lib/codemirror.js"></script>
+    <script src="./lib/cypher.js"></script>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/codemirror.css">
+    <link rel="stylesheet" href="./css/neo.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
@@ -26,7 +29,23 @@
                     <div class="input-group-append">
                         <button class="btn btn-outline-dark" type="button" onclick="queryNeo4J()">Submit query</button>
                     </div>
-                    <input type="text" id="queryInput" class="form-control" placeholder="Enter Cypher query" value="MATCH (p)-[r:BELONGS_TO*1..4]->(c:Category { title: 'Physics'}) RETURN p, r, c LIMIT 500" aria-label="Cypher query" aria-describedby="button-addon2">
+                    <input type="text" id="code" class="form-control" placeholder="Enter Cypher query" value="MATCH (p)-[r:BELONGS_TO*1..4]->(c:Category { title: 'Physics'}) RETURN p, r, c LIMIT 500" aria-label="Cypher query" aria-describedby="button-addon2">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="custom-control custom-checkbox">
+                    <input class="custom-control-input" type="checkbox" value="" id="drawHideLabelsCheckBox" onclick="drawHideLabelsTrigger();">
+                    <label class="custom-control-label" for="drawHideLabelsCheckBox">
+                        Labels
+                    </label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input class="custom-control-input" type="checkbox" value="" id="drawHideEdgesCheckBox" onclick="drawHideEdgesTrigger();">
+                    <label class="custom-control-label" for="drawHideEdgesCheckBox">
+                        Edges
+                    </label>
                 </div>
             </div>
         </div>
@@ -40,16 +59,6 @@
         <div class="container">
             <div class="row">
                 <button id="saveGEXF" class="btn btn-outline-dark" type="button" onclick="saveGEXF();">Save GEXF</button>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                Labels <input id="drawHideLabelsCheckBox" type="checkbox" class="form-check-input" onclick="drawHideLabelsTrigger();" />
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                Edges <input id="drawHideEdgesCheckBox" type="checkbox" class="form-check-input" onclick="drawHideEdgesTrigger();" />
             </div>
         </div>
     </div>
