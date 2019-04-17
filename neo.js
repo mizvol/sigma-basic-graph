@@ -83,7 +83,7 @@ function noverlap() {
 function saveGEXF() {
     console.log(sigma_instance.toGEXF({
         download: true,
-        filename: 'myGraph.gexf',
+        filename: 'sigma-graph' + + new Date().valueOf() +  '.gexf',
         nodeAttributes: 'neo4j_data',
         edgeAttributes: 'neo4j_data',
         renderer: sigma_instance.renderers[0],
