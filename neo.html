@@ -13,11 +13,7 @@
     <script src="./lib/plugins/sigma.layout.noverlap/sigma.layout.noverlap.js"></script>
     <script src="./lib/plugins/sigma.plugins.animate/sigma.plugins.animate.js"></script>
     <script src="./lib/plugins/sigma.exporters.gexf/sigma.exporters.gexf.js"></script>
-    <script src="./lib/codemirror.js"></script>
-    <script src="./lib/cypher.js"></script>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="./css/codemirror.css">
-    <link rel="stylesheet" href="./css/neo.css">
     <link rel="stylesheet" href="main.css">
 </head>
 
@@ -29,7 +25,7 @@
                     <div class="input-group-append">
                         <button class="btn btn-outline-dark" type="button" onclick="queryNeo4J()">Submit query</button>
                     </div>
-                    <input type="text" id="code" class="form-control" placeholder="Enter Cypher query" value="MATCH (p)-[r:BELONGS_TO*1..4]->(c:Category { title: 'Physics'}) RETURN p, r, c LIMIT 500" aria-label="Cypher query" aria-describedby="button-addon2">
+                    <input type="text" id="queryInput" class="form-control" placeholder="Enter Cypher query" value="MATCH (p)-[r:BELONGS_TO*1..4]->(c:Category { title: 'Physics'}) RETURN p, r, c LIMIT 500" aria-label="Cypher query" aria-describedby="button-addon2">
                 </div>
             </div>
         </div>

@@ -92,21 +92,10 @@ function saveGEXF() {
     }));
 }
 
-window.onload = function() {
-    CodeMirror.fromTextArea(document.getElementById("code"), {
-        mode: 'cypher',
-        lineNumbers: true,
-        theme: 'neo'
-    });
-}
-
 function queryNeo4J() {
     stopLayout(); // stop previously running layout plugin
 
-    var editor = document.getElementById("code");
-    var query = editor.value;
-
-    // var query = document.getElementById("queryInput").value;
+    var query = document.getElementById("queryInput").value;
     sigma.neo4j.cypher({ url: 'http://localhost:7474', user: 'neo4j', password: '20121967' },
         query,
         sigma_instance,
