@@ -1,2 +1,3 @@
 MATCH (p)-[r:BELONGS_TO*1..2]->(c:Category { title: 'Physics'}) RETURN p, r, c LIMIT 500
 MATCH (p: Page {title: "Game_of_Thrones"})-[r:LINKS_TO*1..3]->(c) RETURN p.title, r, c LIMIT 5000
+MATCH (p:Page)-[r:BELONGS_TO*1..4]->(c:Category {title: "Game_of_Thrones"}) RETURN p, r, c
