@@ -70,7 +70,7 @@ function noverlap() {
     var listener = sigma_instance.configNoverlap(config);
 
     if (nNodes > 500) {
-        if (confirm("This graph is too large to recompute the layout. It contains " + nNodes + " nodes. Are you sure you want to continue?")) {
+        if (confirm("This graph is too large to recompute the layout. It contains " + nNodes + " nodes. We recommend exporting GEXF file and exploring it in Gephi. Are you sure you want to continue?")) {
             sigma_instance.startNoverlap();
         } else {
             return;
