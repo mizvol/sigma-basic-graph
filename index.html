@@ -13,11 +13,12 @@
 </head>
 
 <body>
-	<input id="stopLayout" type="button" value="Stop Layout" onclick="stopLayout();" />
-	<input id="restartLayout" type="button" value="Restart Layout" onclick="restartLayout();" />
-	Show/hide node labels: <input id="drawHideLabelsCheckBox" type="checkbox" onclick="drawHideLabelsTrigger();" />
-	Show/hide edges: <input id="drawHideEdgesCheckBox" type="checkbox" onclick="drawHideEdgesTrigger();" />
-    <input id="week" type="week" name="week" value="2018-W18" min="2018-W18" max="2018-W21" onclick='updateGraph()' required>
+    <input type="week" id="week" name="week" value="2018-W18" min="2018-W18" max="2018-W21" required>
+    <input type="button" value="Show" onclick='updateGraph()'>
+    <!-- <input id="stopLayout" type="button" value="Stop Layout" onclick="stopLayout();" /> -->
+    <!-- <input id="restartLayout" type="button" value="Restart Layout" onclick="restartLayout();" /> -->
+    Show/hide node labels: <input id="drawHideLabelsCheckBox" type="checkbox" onclick="drawHideLabelsTrigger();" />
+    Show/hide edges: <input id="drawHideEdgesCheckBox" type="checkbox" onclick="drawHideEdgesTrigger();" />
     <div id="container"></div>
     <script src="main.js"></script>
 </body>
