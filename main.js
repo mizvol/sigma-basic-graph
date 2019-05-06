@@ -72,7 +72,7 @@ sigmaConfig = {
 
 sigmaInitCallback = function(s) {
     sigma_instance.refresh();
-    sigma_instance.startForceAtlas2(forceAtlas2Config);
+    // sigma_instance.startForceAtlas2(forceAtlas2Config);
 }
 
 var sigma_instance = new sigma(sigmaConfig);
