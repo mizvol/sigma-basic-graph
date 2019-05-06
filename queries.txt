@@ -2,3 +2,6 @@ MATCH (p)-[r:BELONGS_TO*1..2]->(c:Category { title: 'Physics'}) RETURN p, r, c L
 MATCH (p: Page {title: "Game_of_Thrones"})-[r:LINKS_TO*1..3]->(c) RETURN p.title, r, c LIMIT 5000
 MATCH (p:Page)-[r:BELONGS_TO*1..4]->(c:Category {title: "Game_of_Thrones"}) RETURN p, r, c
 MATCH (page)-[r:BELONGS_TO*1..5]->(c:Category { title: 'American_actors'}) RETURN page, r, c LIMIT 25000
+
+MATCH (article)-[:BELONGS_TO*1..3]->(cat:Category { title: 'Physics' }) WITH DISTINCT article WITH COLLECT(article) AS article_nodes UNWIND article_nodes AS article1 
+MATCH (article1)-[edge]->(article2) WHERE article2 IN article_nodes RETURN count(distinct article2), count(edge);
