@@ -77,4 +77,11 @@ sigmaInitCallback = function(s) {
 
 var sigma_instance = new sigma(sigmaConfig);
 
-sigma.parsers.json('data/ga.json', sigma_instance, sigmaInitCallback);
+sigma.parsers.json('data/2018-W18.json', sigma_instance, sigmaInitCallback);
+
+function updateGraph () {
+    var weekControl = document.querySelector('input[type="week"]');
+    var week = weekControl.value;
+    sigma.parsers.json('data/' + week + '.json', sigma_instance, sigmaInitCallback);
+    sigma_instance.refresh();
+}
