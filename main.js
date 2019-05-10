@@ -1,5 +1,7 @@
 // Force Atlas readme: https://github.com/Linkurious/linkurious.js/tree/linkurious-version/plugins/sigma.layout.forceAtlas2
 
+introJs().start();
+
 forceAtlas2Config = {
     barnesHutOptimize: true,
     scalingRatio: 500

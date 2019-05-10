@@ -4,21 +4,24 @@
 <head>
     <title>Basic sigma.js example</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="./css/introjs.css">
     <script src="./lib/sigma.min.js"></script>
     <script src="./lib/plugins/sigma.parsers.gexf/gexf-parser.js"></script>
     <script src="./lib/plugins/sigma.parsers.json/sigma.parsers.json.js"></script>
     <script src="./lib/plugins/sigma.parsers.gexf/sigma.parsers.gexf.js"></script>
     <script src="./lib/plugins/sigma.layout.forceAtlas2/supervisor.js"></script>
     <script src="./lib/plugins/sigma.layout.forceAtlas2/worker.js"></script>
+    <script src="./lib/intro.min.js"></script>
 </head>
 
 <body>
-    <input type="week" id="week" name="week" value="2018-W18" min="2018-W18" max="2018-W21" required>
-    <input type="button" value="Show" onclick='updateGraph()'>
+        <input data-step="1" data-intro="Pick a week." type="week" id="week" name="week" value="2018-W18" min="2018-W18" max="2018-W21" required>
+        <input data-step="2" data-intro="Press Show to load a corresponding anomaly graph." type="button" value="Show" onclick='updateGraph()'>
+    </div>
     <!-- <input id="stopLayout" type="button" value="Stop Layout" onclick="stopLayout();" /> -->
     <!-- <input id="restartLayout" type="button" value="Restart Layout" onclick="restartLayout();" /> -->
-    Show/hide node labels: <input id="drawHideLabelsCheckBox" type="checkbox" onclick="drawHideLabelsTrigger();" />
-    Show/hide edges: <input id="drawHideEdgesCheckBox" type="checkbox" onclick="drawHideEdgesTrigger();" />
+    Show/hide node labels: <input data-step="3" data-intro="Display node labels." id="drawHideLabelsCheckBox" type="checkbox" onclick="drawHideLabelsTrigger();" />
+    Show/hide edges: <input data-step="4" data-intro="Check this to draw edges." id="drawHideEdgesCheckBox" type="checkbox" onclick="drawHideEdgesTrigger();" />
     <div id="container"></div>
     <script src="main.js"></script>
 </body>
