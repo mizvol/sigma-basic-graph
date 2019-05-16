@@ -96,7 +96,7 @@ function queryNeo4J() {
     stopLayout(); // stop previously running layout plugin
 
     var query = document.getElementById("queryInput").value;
-    sigma.neo4j.cypher({ url: 'http://localhost:7474', user: 'neo4j', password: '20121967' },
+    sigma.neo4j.cypher({ url: 'http://localhost:7474', user: 'neo4j', password: '' },
         query,
         sigma_instance,
         sigmaInitCallback);
